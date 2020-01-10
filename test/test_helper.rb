@@ -5,6 +5,7 @@ require "minitest/reporters"
 Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
   # テストユーザーがログイン中の場合にtrueを返す
@@ -19,7 +20,6 @@ class ActiveSupport::TestCase
 end
 
 class ActionDispatch::IntegrationTest
-
   # テストユーザーとしてログインする
   def log_in_as(user, password: 'password', remember_me: '1')
     post login_path, params: { session: { email: user.email,
